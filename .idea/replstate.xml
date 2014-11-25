@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ReplState" timestamp="1416911554103">{:repl-history {:ide [], :local [&quot;where&quot; &quot;(lein test)&quot; &quot;lein test&quot; &quot;(run-tests 'app.bob)&quot; &quot;(load-file \&quot;src/app/bob/bob_test.clj\&quot;)&quot;], :remote []}}</component>
+</project>
+
