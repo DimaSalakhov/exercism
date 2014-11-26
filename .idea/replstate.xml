@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ReplState" timestamp="1416911554103">{:repl-history {:ide [], :local [&quot;where&quot; &quot;(lein test)&quot; &quot;lein test&quot; &quot;(run-tests 'app.bob)&quot; &quot;(load-file \&quot;src/app/bob/bob_test.clj\&quot;)&quot;], :remote []}}</component>
+  <component name="ReplState" timestamp="1416980166627">{:repl-history {:ide [], :local [&quot;(clojure.string/lower-case \&quot;1, 2\&quot;)&quot; &quot;(run-tests)&quot; &quot;(use 'clojure.test)&quot; &quot;(use 'bob)&quot; &quot;(use 'app.bob)&quot; &quot;(pst)&quot; &quot;(run-all-tests)&quot; &quot;where&quot; &quot;(lein test)&quot; &quot;lein test&quot; &quot;(run-tests 'app.bob)&quot; &quot;(load-file \&quot;src/app/bob/bob_test.clj\&quot;)&quot;], :remote []}}</component>
 </project>
-

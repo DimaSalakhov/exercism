@@ -1,7 +1,6 @@
 (ns bob-test
-  (:require [clojure.test :refer :all]))
-
-(load-file "bob.clj")
+  (:require [clojure.test :refer :all]
+            [bob :refer :all]))
 
 (deftest responds-to-something
   (is (= "Whatever." (bob/response-for "Tom-ay-to, tom-aaaah-to."))))
