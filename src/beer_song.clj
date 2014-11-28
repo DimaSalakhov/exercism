@@ -1,18 +1,12 @@
  (ns beer-song
    (:require [clojure.string :refer [join capitalize]]))
 
- (defn say-bottles [x]
-   (cond
-     (= 1 x) "1 bottle"
-     (= 0 x) "no more bottles"
-     :else (str x " bottles")))
-
  (defn verse [x]
-   (str (capitalize (format "%1$s of beer on the wall, %1$s of beer.\n" (say-bottles x)))
-        (cond
-          (= x 1) (format "Take it down and pass it around, %1$s of beer on the wall.\n" (say-bottles (dec x)))
-          (= x 0) (format "Go to the store and buy some more, %1$s of beer on the wall.\n" (say-bottles 99))
-          :else (format "Take one down and pass it around, %1$s of beer on the wall.\n" (say-bottles (dec x))))))
+   (case x
+      2 "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
+      1 "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
+      0 "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
+      (format "%1$s bottles of beer on the wall, %1$s bottles of beer.\nTake one down and pass it around, %2$s bottles of beer on the wall.\n" x (dec x))))
 
  (defn sing
    ([x](sing x 0))
