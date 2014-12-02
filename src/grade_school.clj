@@ -8,6 +8,6 @@
    (db grade []))
 
  (defn sorted [db]
-   (reduce #(assoc %1 (key %2) (sort (val %2))) {} (sort-by key > db)))
+   (reduce (fn [m [k v]](assoc m k (sort v))) {} (sort-by key > db)))
 
 
