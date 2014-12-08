@@ -2,9 +2,17 @@
   (:import (java.util Calendar)))
 
  (def days-of-the-week {:monday 2 :tuesday 3 :wednesday 4 :thursday 5 :friday 6 :saturday 7 :sunday 1})
- (def weeks {:first 1 :second 2 :third 3 :fourth 4 :teenth 2 :last 4})
+ (defn start-of-the-period
+  [month week-keycode]
+  (case week-keycode
+   :first 1
+   :second 8
+   :third 15
+   :fourth 22
+   :teenth 13
+   :last (if (= 2 month) 23 25)))
 
- (defn get-week
+ (defn get-day-of-week
   [year month week-start]
   (let [cal (Calendar/getInstance)]
    (.set cal Calendar/YEAR year)
@@ -12,17 +20,22 @@
    (.set cal Calendar/DAY_OF_MONTH week-start)
    (.get cal Calendar/DAY_OF_WEEK)))
 
- (defn date-after
-  [di da]
-  (if (> di da)
-   (+ (- 7 di) da)
-   (- da di)))
+ (defn days-offset
+  "Calculates offset in days between 2 days of the week"
+  [from to]
+  (if (> from to)
+   (+ (- 7 from) to)
+   (- to from)))
 
  (defn calculate-day
-  [year month day week]
-  (let [week-start (+ (* (dec week) 7) 1)]
-    (+ week-start (date-after (get-week year month week-start) day))))
+  [year month week-start day-of-the-week]
+  (+ week-start (days-offset (get-day-of-week year month week-start) day-of-the-week)))
 
  (defn meetup
-  [month year day week]
-  (vector year month (calculate-day year month (days-of-the-week day) (weeks week))))
+  [month year day-of-the-week week]
+  (vector year
+          month
+          (calculate-day year
+                         month
+                         (start-of-the-period month week)
+                         (days-of-the-week day-of-the-week))))
