@@ -11,7 +11,7 @@
   (rounds-to 31.69 (space-age/on-earth 1000000000)))
 
 (deftest age-in-mercury-years
-  (let [seconds 2134835688]
+    (let [seconds 2134835688]
     (rounds-to 67.65 (space-age/on-earth seconds))
     (rounds-to 280.88 (space-age/on-mercury seconds))))
 
